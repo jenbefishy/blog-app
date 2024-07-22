@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>{%block title%} {% endblock %}</title>
+		{% load static %}
+		<link rel="stylesheet" href="{% static 'posts/style.css' %}">
+
+		{% block links %}
+		{% endblock %}
+	</head>
+
+	<body>
+		<header>
+			<div class="header-container">
+				<div class="header-title">
+					<a href="{% url 'index' %}">Blog</a>
+				</div>
+				<nav>
+					<ul>
+						{% if user.is_authenticated %}
+						<li><a href="{% url 'post_create' %}"> Create Post </a></li>
+						<li><a href="{% url 'user_posts' user.username %}" %}>{{ user.username }}</a></li>
+						<li><a href="{% url 'logout' %}">Logout</a></li>
+						{% else %}
+						<li><a href="{% url 'login' %}">Login</a></li>
+						<li><a href="{% url 'register' %}">Register</a></li>
+						{% endif %}
+					</ul>
+				</nav>
+			</div>
+		</header>
+		
+
+		<main>
+			{% block content %}
+			{% endblock %}
+		</main>
+		<footer>
+			<p>&copy; 2024 Blog Site. All rights reserved.</p>
+		</footer>
+	</body>
+</html>

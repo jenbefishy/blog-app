@@ -1,0 +1,24 @@
+{% extends 'posts/base.html' %}
+
+{% block title %} {{post.title}} {% endblock %}
+
+{% load static %}
+{% block links %}
+<link rel="stylesheet" href="{% static 'posts/detail.css' %}">
+{% endblock %}
+
+{% block content %}
+<article class="post-detail">
+	<h1>{{ post.title }}</h1>
+	<div class="post-content">
+		{{ post.content|safe }}
+	</div>
+	<p class="post-meta">By {{ post.author.username }} on {{ post.created_at|date:"F j, Y" }}</p>
+	{% if user.is_authenticated %}
+	<a href="{% url 'post_edit' post.slug %}" class="btn">Edit Post</a>
+	<a href="{% url 'post_delete' post.slug %}" class="btn">Delete</a>
+	{% endif %}
+</article>
+{% endblock %}
+
+

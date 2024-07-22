@@ -1,0 +1,50 @@
+.post-detail {
+    max-width: 800px; /* Максимальная ширина контейнера поста */
+    margin: 20px auto; /* Центрирование поста с отступами сверху и снизу */
+    padding: 20px 30px; /* Внутренние отступы */
+    background-color: #ffffff; /* Белый фон для поста */
+    border-radius: 8px; /* Скругленные углы */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Легкая тень для поста */
+}
+
+.post-detail h1 {
+    font-size: 2.5rem; /* Размер шрифта заголовка */
+    margin: 10px 10px 15px 0px;
+    color: #333; /* Цвет заголовка */
+}
+
+.post-meta {
+    font-size: 0.9rem; /* Размер шрифта мета-информации */
+    color: #777; /* Цвет текста мета-информации */
+    margin-bottom: 20px; /* Отступ снизу */
+}
+
+.post-content {
+    font-size: 1rem; /* Размер шрифта контента */
+    line-height: 1.6; /* Высота строки для лучшей читаемости */
+    color: #212529; /* Цвет текста контента */
+}
+
+
+.btn {
+    display: inline-block; /* Отображение кнопки как строчного блока */
+    padding: 10px 15px; /* Внутренние отступы кнопки */
+    margin-top: 20px; /* Отступ сверху кнопки */
+    background-color: #007bff; /* Цвет фона кнопки */
+    color: #ffffff; /* Цвет текста кнопки */
+    text-decoration: none; /* Убирает подчеркивание у ссылки */
+    border-radius: 5px; /* Скругленные углы кнопки */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Плавный переход фона и тени */
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Цвет фона кнопки при наведении */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень кнопки при наведении */
+}
+
+.post-detail a:hover,
+.post-detail a:focus {
+	text-decoration: none;
+	
+}
+

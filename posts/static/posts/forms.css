@@ -1,0 +1,130 @@
+.form-wrapper {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 800px; /* Максимальная ширина островка */
+    margin: 50px auto; /* Центрирование горизонтально */
+}
+
+.form-container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+   
+}
+
+.form-login {
+	max-width: 350px;
+}
+
+.form-login input {
+	width: 100%;
+}
+
+.form-registration {
+	max-width: 350px;
+}
+
+h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    text-align: center;
+    color: #333; /* Цвет заголовка */
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+textarea {
+	min-height: 300px;
+	width:100%;
+	resize: none;
+}
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-check-input {
+    margin-right: 5px;
+}
+
+.error {
+    color: #dc3545;
+    font-size: 0.875rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 5px 0;
+    background-color: #007bff;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    height: 45px;
+	font-size: 16px;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+    color: #ffffff;
+}
+
+.btn-cancel {
+    background-color: #6c757d;
+}
+
+.btn-cancel:hover {
+    background-color: #5a6268;
+}
+
+
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.has-error input[type="text"],
+.has-error input[type="password"] {
+    border-color: #dc3545;
+}
+
+.has-error input[type="text"]:focus,
+.has-error input[type="password"]:focus {
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+

@@ -1,0 +1,57 @@
+{% extends 'posts/base.html' %}
+{% block title %} Edit post {% endblock %}
+
+{% load static %}
+{% block links %}
+<link rel="stylesheet" href="{% static 'posts/forms.css' %}">
+{% endblock %}
+
+{% block content %}
+  <div class="form-wrapper">
+            <div class="form-container">
+                <h2>Edit Post</h2>
+                <form method="post" action="{% url 'post_edit' post.slug %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+                    <div class="form-group">
+                        <label for="id_title">Title:</label>
+                        <input type="text" id="id_title" name="title" class="form-control" value="{{ form.title.value }}">
+                        {% if form.title.errors %}
+                            <div class="error">
+                                {% for error in form.title.errors %}
+                                    <p>{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="id_content">Content:</label>
+                        <textarea id="id_content" name="content" class="form-control">{{ form.content.value }}</textarea>
+                        {% if form.content.errors %}
+                            <div class="error">
+                                {% for error in form.content.errors %}
+                                    <p>{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="id_is_private">Private:</label>
+                        <input type="checkbox" id="id_is_private" name="is_private" class="form-check-input" {% if form.is_private.value %}checked{% endif %}>
+                        {% if form.is_private.errors %}
+                            <div class="error">
+                                {% for error in form.is_private.errors %}
+                                    <p>{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <button type="submit" class="btn">Save</button>
+                    <a href="{% url 'post_detail' post.slug %}" class="btn btn-cancel">Cancel</a>
+                </form>
+            </div>
+        </div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'posts/base.html' %}
+
+{% block title %} Register {% endblock %}
+
+{% load static %}
+{% block links %}
+<link rel="stylesheet" href="{% static 'posts/forms.css' %}">
+{% endblock %}
+{% block content %}
+
+<div class="form-wrapper form-registration">
+	<div class="form-container">
+		<h2>Register</h2>
+		<form method="post" action="{% url 'register' %}">
+			{% csrf_token %}
+			{% if form.non_field_errors %}
+			<div class="alert alert-danger">
+				{{ form.non_field_errors }}
+			</div>
+			{% endif %}
+			<div class="form-group{% if form.username.errors %} has-error{% endif %}">
+				<label for="id_username">Username:</label>
+				{{ form.username.errors }}
+				{{ form.username }}
+			</div>
+			<div class="form-group{% if form.password1.errors %} has-error{% endif %}">
+				<label for="id_password1">Password:</label>
+				{{ form.password1.errors }}
+				{{ form.password1 }}
+			</div>
+			<div class="form-group{% if form.password2.errors %} has-error{% endif %}">
+				<label for="id_password2">Confirm Password:</label>
+				{{ form.password2.errors }}
+				{{ form.password2 }}
+			</div>
+			<button type="submit" class="btn btn-primary">Register</button>
+		</form>
+		<p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+	</div>
+</div>
+
+
+{% endblock %}

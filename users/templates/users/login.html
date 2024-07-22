@@ -1,0 +1,36 @@
+{% extends 'posts/base.html' %}
+
+{% block title %} Login {% endblock %}
+{% load static %}
+{% block links %}
+<link rel="stylesheet" href="{% static 'posts/forms.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="form-wrapper form-login">
+<div class="form-container">
+        <h2>Login</h2>
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_username">Username:</label>
+                {{ form.username.errors }}
+                {{ form.username }}
+            </div>
+            <div class="form-group">
+                <label for="id_password">Password:</label>
+                {{ form.password.errors }}
+                {{ form.password }}
+            </div>
+            {% if form.non_field_errors %}
+                <div class="alert alert-danger">
+                    {{ form.non_field_errors }}
+                </div>
+            {% endif %}
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+        <p>Don't have an account? <a href="{% url 'register' %}">Sign up</a></p>
+    </div>
+</div>
+
+{% endblock %}
